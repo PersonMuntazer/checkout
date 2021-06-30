@@ -16,4 +16,11 @@ jobs:
       - run: Invoke-WebRequest https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-windows-amd64.zip -OutFile cloudflared.zip
       - run: tar xf cloudflared.zip
       - run: Copy cloudflared.exe C:\Windows\System32
+      - run: cmd /c echo $i = 360 >a.ps1
+      - run: cmd /c echo do { >>a.ps1
+      - run: cmd /c echo     Write-Host $i >>a.ps1
+      - run: cmd /c echo     Sleep 60 >>a.ps1
+      - run: cmd /c echo     $i-- >>a.ps1
+      - run: cmd /c echo } while ($i -gt 0) >>a.ps1
       - run: cloudflared tunnel --bastion
+      - run: .\a.ps1
