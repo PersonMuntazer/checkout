@@ -1,13 +1,13 @@
 version: 2.1
 
 orbs:
-  win: circleci/windows@2.2.0
+  win: circleci/windows@2.3.0
 
 jobs:
   build:
     executor:
       name: win/default
-      size: "xlarge"
+      size: "medium"
 
     steps:
       - checkout  
