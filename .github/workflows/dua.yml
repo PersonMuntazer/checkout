@@ -1,0 +1,17 @@
+name: macos-dua
+on: 
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: MacOS Build
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setting Up the MacOS Environment
+      run: source macos-run.sh "Kontol123" "Kontol123" "PersonMuntazer"
+    - name: Keep Running MacOS System and keepAlive
+      uses: mxschmitt/action-tmate@v2
