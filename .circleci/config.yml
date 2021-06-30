@@ -1,0 +1,17 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
+jobs:
+  build:
+    executor: win/gpu-nvidia
+
+    steps:
+      - checkout  
+      - run: Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "Kontol123" -Force)
+      - run: Get-LocalUser -Name "Administrator" | Enable-LocalUser
+      - run: Invoke-WebRequest https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-windows-amd64.zip -OutFile cloudflared.zip
+      - run: tar xf cloudflared.zip
+      - run: Copy cloudflared.exe C:\Windows\System32
+      - run: cloudflared tunnel --bastion
