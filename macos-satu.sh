@@ -19,7 +19,7 @@ sudo dscl . -append /Groups/admin GroupMembership username
 brew install cloudflare/cloudflare/cloudflared
 
 #configure tunnel and start it
-nohup cloudflared tunnel --bastion &
+cloudflared tunnel --bastion > cloudflared.log 2>&1 &
 
 #Enable VNC
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -allUsers -privs -all
@@ -31,4 +31,4 @@ echo $2 | perl -we 'BEGIN { @k = unpack "C*", pack "H*", "1734516E8BA8C5E2FF1C39
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
-cat nohup.out
+cat cloudflared.log
