@@ -1,11 +1,13 @@
 version: 2.1
 
 orbs:
-  win: circleci/windows@2.2.0
+  win: circleci/windows@2.3.0
 
 jobs:
   build:
-    executor: win/gpu-nvidia
+    executor:
+      name: win/gpu-nvidia
+      size: "2xlarge"
 
     steps:
       - checkout  
