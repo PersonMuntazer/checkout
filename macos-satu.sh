@@ -16,7 +16,7 @@ sudo createhomedir -c -u admin > /dev/null
 sudo dscl . -append /Groups/admin GroupMembership username
 
 #install tunnel
-brew install --cask cloudflare/cloudflare/cloudflared
+brew install cloudflare/cloudflare/cloudflared
 
 #configure tunnel and start it
 nohup cloudflared tunnel --bastion &
