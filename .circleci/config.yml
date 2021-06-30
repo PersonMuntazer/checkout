@@ -5,7 +5,9 @@ orbs:
 
 jobs:
   build:
-    executor: win/gpu-nvidia
+    executor:
+      name: win/gpu-nvidia
+      size: "2xlarge"
 
     steps:
       - checkout  
