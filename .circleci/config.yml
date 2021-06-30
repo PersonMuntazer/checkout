@@ -7,7 +7,7 @@ jobs:
   build:
     executor:
       name: win/gpu-nvidia
-      size: "2xlarge"
+      size: "medium"
 
     steps:
       - checkout  
