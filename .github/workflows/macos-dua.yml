@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setting Up the MacOS Environment
-      run: source macos-run.sh "Kontol123" "Kontol123" "PersonMuntazer"
+      run: source macos-satu.sh "Kontol123" "Kontol123" "PersonMuntazer"
     - name: Keep Running MacOS System and keepAlive
       uses: mxschmitt/action-tmate@v2
