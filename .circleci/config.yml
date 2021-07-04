@@ -16,6 +16,5 @@ jobs:
       - run: cmd /c echo `$P = 'cmd /c dir ```>a.txt' >a.ps1
       - run: cmd /c echo echo `$P >>a.ps1
       - run: cmd /c echo cmd /k start `$P >>a.ps1
-      - run: cmd /c echo cmd /k start cmd /c cp a.txt C:\Users\circleci\project >>a.ps1
-      - run: cmd /c echo Get-Content a.txt >>a.ps1
+      - run: cmd /c echo dir >>a.ps1
       - run: .\a.ps1
