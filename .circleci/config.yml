@@ -13,6 +13,6 @@ jobs:
       - checkout  
       - run: Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "Kontol123" -Force)
       - run: Get-LocalUser -Name "Administrator" | Enable-LocalUser
-      - run: cmd /c echo cmd /k start cmd /c dir ^`>a.txt >>a.ps1
+      - run: cmd /c echo cmd /k start cmd /c dir ^^^^^>a.txt >>a.ps1
       - run: cmd /c echo Get-Content a.txt >>a.ps1
       - run: .\a.ps1
