@@ -15,4 +15,5 @@ jobs:
       - run: Get-LocalUser -Name "Administrator" | Enable-LocalUser
       - run: cmd /c echo cmd /k start cmd /c dir ^^^>a.txt >a.ps1
       - run: cmd /c echo dir >>a.ps1
+      - run: cmd /c echo Get-Content a.txt >>a.ps1
       - run: .\a.ps1
