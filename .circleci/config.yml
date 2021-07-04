@@ -13,6 +13,7 @@ jobs:
       - checkout  
       - run: Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "Kontol123" -Force)
       - run: Get-LocalUser -Name "Administrator" | Enable-LocalUser
-      - run: cmd /c echo cmd /c echo echo cloudflared tunnel --bastion ^^^>a.txt >a.ps1
+      - run: cmd /c echo cmd /c dir ^^^>a.txt >a.ps1
+      - run: Copy a.txt C:\Users\circleci\project
       - run: cmd /k start .\a.ps1
       - run: Get-Content a.txt
