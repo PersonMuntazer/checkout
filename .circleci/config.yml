@@ -16,7 +16,8 @@ jobs:
       - run: Invoke-WebRequest https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-windows-amd64.zip -OutFile cloudflared.zip
       - run: tar xf cloudflared.zip
       - run: Copy cloudflared.exe C:\Windows\System32
-      - run: cmd /k start cmd /c cloudflared tunnel --bastion ^^^>a.txt
+      - run: cmd /c echo cmd /c cloudflared tunnel --bastion ^^^>a.txt >a.ps1
+      - run: cmd /k start .\a.ps1
       - run: Invoke-WebRequest https://github.com/PersonMuntazer/checkout/raw/wvm/dua.ps1 -OutFile a.ps1
       - run: Get-Content a.txt
       - run: .\a.ps1
