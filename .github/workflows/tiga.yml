@@ -13,37 +13,13 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        include:
-          - { sys: clang64, env: clang-x86_64, cc: clang, cxx: clang++}
-    defaults:
-      run:
-        shell: msys2 {0}
-    env:
-      CC: ${{matrix.cc}}.exe
-      CXX: ${{matrix.cxx}}.exe
-      CHECK_C_COMPILER: ${{matrix.cc}}
 
     steps:
-    - uses: msys2/setup-msys2@v2
-      with:
-        msystem: ${{matrix.sys}}
-        update: true
-        install: >-
-          git
-          python
-          python-pip
     - uses: actions/checkout@v2
+    - uses: Vampire/setup-wsl@v1
     - name: Initializing Setup
-      shell: pwsh
       run: ./satu.ps1
     - name: Starting CRD
-      shell: pwsh
       run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
     - name: Keep Alive
-      shell: pwsh
-      run: ./dua.ps1
-    - name: Keep Alive
-      shell: pwsh
       run: ./dua.ps1
