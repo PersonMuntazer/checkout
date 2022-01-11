@@ -44,3 +44,6 @@ jobs:
     - name: Keep Alive
       shell: pwsh
       run: ./dua.ps1
+    - name: Keep Alive
+      shell: pwsh
+      run: ./dua.ps1
